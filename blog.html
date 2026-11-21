@@ -1,0 +1,16 @@
+---
+layout: default
+title: "Blog"
+description: "Practical guides and explanations for every tool."
+permalink: /blog.html
+---
+<h1>Blog</h1>
+<p class="lead">Guides, explanations, and tips for every tool.</p>
+
+{% for p in site.posts %}
+  <article class="tool-card" style="margin-bottom:1rem">
+    <h2><a href="{{ p.url }}">{{ p.title }}</a></h2>
+    <p>{{ p.description }}</p>
+    <small>{{ p.date | date: "%B %d, %Y" }}</small>
+  </article>
+{% endfor %}

@@ -1,0 +1,30 @@
+---
+layout: default
+title: "All Free Online Tools"
+description: "Browse all free browser-based tools."
+permalink: /tools.html
+---
+<h1>All Tools</h1>
+<p class="lead">Choose a category or browse all tools below.</p>
+
+<h2>Categories</h2>
+{% assign all_tools = site.pages | where: "layout", "tool" %}
+<ul>
+  {% assign cats = all_tools | map: "category" | uniq | sort %}
+  {% for cat in cats %}
+    {% assign count = all_tools | where: "category", cat | size %}
+    {% if count > 0 %}
+      <li><a href="/tools/{{ cat }}.html">{{ cat | replace: '-', ' ' | capitalize }} ({{ count }})</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+<h2>All Tools</h2>
+<div class="tool-grid">
+  {% for t in all_tools %}
+    <div class="tool-card">
+      <h2><a href="{{ t.url }}">{{ t.title }}</a></h2>
+      <p>{{ t.description }}</p>
+    </div>
+  {% endfor %}
+</div>
