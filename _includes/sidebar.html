@@ -1,0 +1,47 @@
+{% assign all_tools = site.pages | where: "layout", "tool" %}
+{% assign all_posts = site.posts %}
+
+<div class="sidebar-inner">
+  <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">✕</button>
+
+  <h3 class="sidebar-title">Categories</h3>
+  <ul class="sidebar-list">
+    {% assign cats = all_tools | map: "category" | uniq | sort %}
+    {% for cat in cats %}
+      {% assign count = all_tools | where: "category", cat | size %}
+      {% if count > 0 %}
+        <li><a href="/tools/{{ cat }}.html">{{ cat | replace: '-', ' ' | capitalize }} ({{ count }})</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  {% if page.layout == "tool" %}
+    {% assign related = all_tools | where: "category", page.category | where_exp: "t", "t.url != page.url" %}
+    {% if related.size > 0 %}
+      <h3 class="sidebar-title">Related Tools</h3>
+      <ul class="sidebar-list">
+        {% for t in related limit:4 %}<li><a href="{{ t.url }}">{{ t.title }}</a></li>{% endfor %}
+      </ul>
+    {% endif %}
+  {% endif %}
+
+  {% if page.layout == "post" and page.tool %}
+    {% assign related_posts = all_posts | where: "tool", page.tool %}
+    {% if related_posts.size > 0 %}
+      <h3 class="sidebar-title">Related Posts</h3>
+      <ul class="sidebar-list">
+        {% for p in related_posts limit:4 %}
+          {% if p.url != page.url %}<li><a href="{{ p.url }}">{{ p.title }}</a></li>{% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endif %}
+
+  {% assign recent = all_posts | sort: "date" | reverse %}
+  {% if recent.size > 0 %}
+    <h3 class="sidebar-title">Recent Posts</h3>
+    <ul class="sidebar-list">
+      {% for p in recent limit:5 %}<li><a href="{{ p.url }}">{{ p.title }}</a></li>{% endfor %}
+    </ul>
+  {% endif %}
+</div>

@@ -1,0 +1,11 @@
+{% if page.tool %}
+  {% assign all_tools = site.pages | where: "layout", "tool" %}
+  {% assign t = all_tools | where: "url", page.tool | first %}
+  {% if t %}
+  <aside class="try-tool">
+    <h2>Try It Yourself</h2>
+    <p>Use our free <strong>{{ t.title }}</strong> — runs entirely in your browser.</p>
+    <p><a class="btn" href="{{ t.url }}">→ Open {{ t.title }}</a></p>
+  </aside>
+  {% endif %}
+{% endif %}

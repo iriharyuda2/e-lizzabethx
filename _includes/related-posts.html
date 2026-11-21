@@ -1,0 +1,13 @@
+{% if page.url %}
+  {% assign related = site.posts | where: "tool", page.url %}
+  {% if related.size > 0 %}
+  <section class="related-posts">
+    <h2>Learn More</h2>
+    <ul>
+      {% for p in related limit:3 %}
+        <li><a href="{{ p.url }}">{{ p.title }}</a> — {{ p.description }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+{% endif %}

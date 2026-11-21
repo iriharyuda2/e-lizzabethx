@@ -1,0 +1,17 @@
+{% assign all_tools = site.pages | where: "layout", "tool" %}
+{% assign related = all_tools | where: "category", page.category | where_exp: "t", "t.url != page.url" %}
+{% if related.size > 0 %}
+<section class="related-tools">
+  <h2>Related Tools</h2>
+  <ul>
+    {% for t in related limit:4 %}
+      <li><a href="{{ t.url }}">{{ t.title }}</a> — {{ t.description }}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% else %}
+<section class="related-tools">
+  <h2>Explore More</h2>
+  <p><a href="/tools.html">Browse all tools →</a></p>
+</section>
+{% endif %}

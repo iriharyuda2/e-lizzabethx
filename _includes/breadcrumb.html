@@ -1,0 +1,14 @@
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a>
+  {% if page.layout == "tool" %}
+    › <a href="/tools.html">Tools</a>
+    › <a href="/tools/{{ page.category }}.html">{{ page.category | replace: '-', ' ' | capitalize }}</a>
+    › <span>{{ page.title }}</span>
+  {% elsif page.layout == "post" %}
+    › <a href="/blog.html">Blog</a>
+    › <span>{{ page.title }}</span>
+  {% elsif page.layout == "hub" and page.category %}
+    › <a href="/tools.html">Tools</a>
+    › <span>{{ page.title }}</span>
+  {% endif %}
+</nav>
