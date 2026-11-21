@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<p class="lead">{{ page.description }}</p>
+{% assign all_tools = site.pages | where: "layout", "tool" %}
+{% if page.category %}
+  {% assign tools = all_tools | where: "category", page.category %}
+{% else %}
+  {% assign tools = all_tools %}
+{% endif %}
+<div class="tool-grid">
+  {% for t in tools %}
+    <div class="tool-card">
+      <h2><a href="{{ t.url }}">{{ t.title }}</a></h2>
+      <p>{{ t.description }}</p>
+    </div>
+  {% endfor %}
+</div>

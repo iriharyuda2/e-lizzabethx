@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<h1>Tag: {{ page.tag }}</h1>
+{% assign all_tools = site.pages | where: "layout", "tool" %}
+{% assign tools = all_tools | where_exp: "t", "t.tags contains page.tag" %}
+{% assign posts = site.posts | where_exp: "p", "p.tags contains page.tag" %}
+{% if tools.size > 0 %}
+<h2>Tools</h2>
+<ul>{% for t in tools %}<li><a href="{{ t.url }}">{{ t.title }}</a></li>{% endfor %}</ul>
+{% endif %}
+{% if posts.size > 0 %}
+<h2>Articles</h2>
+<ul>{% for p in posts %}<li><a href="{{ p.url }}">{{ p.title }}</a></li>{% endfor %}</ul>
+{% endif %}
