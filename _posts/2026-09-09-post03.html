@@ -1,0 +1,21 @@
+---
+layout: post
+title: "What Is URL Encoding"
+description: "Understand percent-encoding and why URLs need it."
+permalink: /blog/what-is-url-encoding.html
+tool: /tools/url-encoder.html
+tags: [url, developer]
+date: 2026-11-21
+---
+<p>URL encoding (percent-encoding) makes URLs safe for special characters.</p>
+<h2>Why It's Needed</h2>
+<p>Characters like spaces, &amp;, ? have special meaning in URLs.</p>
+<h2>How It Works</h2>
+<p>Each unsafe character → %XX where XX is its hex code.</p>
+<h2>Example</h2>
+<p>"hello world" → "hello%20world".</p>
+<h2>Encode Instantly</h2>
+<p>Use a browser-based tool — no data sent anywhere.</p>
+<h2>FAQ</h2>
+<h3>What's the difference between encodeURI and encodeURIComponent?</h3><p>encodeURI preserves URL structure; encodeURIComponent encodes everything.</p>
+<h3>Are spaces %20 or +?</h3><p>%20 in paths, + in query strings (form encoding).</p>

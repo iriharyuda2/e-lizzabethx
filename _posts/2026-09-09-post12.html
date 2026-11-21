@@ -1,0 +1,21 @@
+---
+layout: post
+title: "How Random Number Generators Work"
+description: "Understand pseudorandom vs true random numbers."
+permalink: /blog/how-random-number-generators-work.html
+tool: /tools/random-number-generator.html
+tags: [random, math]
+date: 2026-11-21
+---
+<p>Random number generators (RNGs) produce numbers that appear random.</p>
+<h2>Pseudorandom</h2>
+<p>Most RNGs are deterministic algorithms seeded with a value.</p>
+<h2>Cryptographic Random</h2>
+<p>Uses physical entropy — suitable for security.</p>
+<h2>Browser API</h2>
+<p><code>Math.random()</code> is pseudorandom; <code>crypto.getRandomValues()</code> is cryptographic.</p>
+<h2>Generate Instantly</h2>
+<p>Use a browser-based tool — no data sent anywhere.</p>
+<h2>FAQ</h2>
+<h3>Is Math.random() secure?</h3><p>No — don't use it for passwords or tokens.</p>
+<h3>What is a seed?</h3><p>The starting value that determines the sequence.</p>

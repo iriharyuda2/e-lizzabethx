@@ -1,0 +1,21 @@
+---
+layout: post
+title: "What Is a UUID"
+description: "Understand UUIDs and why they're used in software."
+permalink: /blog/what-is-a-uuid.html
+tool: /tools/uuid-generator.html
+tags: [uuid, developer]
+date: 2026-11-21
+---
+<p>A UUID (Universally Unique Identifier) is a 128-bit identifier.</p>
+<h2>Format</h2>
+<p>8-4-4-4-12 hex digits: <code>123e4567-e89b-12d3-a456-426614174000</code>.</p>
+<h2>Versions</h2>
+<p>v1 (time-based), v4 (random), v5 (namespace).</p>
+<h2>Why Use UUIDs?</h2>
+<p>They're unique without coordination — perfect for distributed systems.</p>
+<h2>Generate Instantly</h2>
+<p>Use a browser-based tool — no data sent anywhere.</p>
+<h2>FAQ</h2>
+<h3>Can two UUIDs collide?</h3><p>Practically impossible for v4 (1 in 2^122).</p>
+<h3>Are UUIDs sortable?</h3><p>Not naturally — use ULID if you need sortable IDs.</p>
