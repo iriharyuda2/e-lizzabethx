@@ -1,0 +1,17 @@
+---
+layout: tool
+title: "Free BMI Calculator"
+description: "Calculate your Body Mass Index instantly in your browser. No signup, no data sent."
+permalink: /tools/bmi-calculator.html
+category: calculators
+tags: [health, weight, bmi]
+date: 2026-11-21
+---
+<form id="f"><label>Height (cm) <input type="number" id="h" min="50" max="250" step="0.1" required></label><label>Weight (kg) <input type="number" id="w" min="10" max="400" step="0.1" required></label><button type="submit">Calculate BMI</button></form>
+<div class="result" id="out" aria-live="polite">Your result will appear here.</div>
+<h2>What Is BMI?</h2><p>Body Mass Index estimates body fat based on height and weight. It is a screening tool, not a diagnosis.</p>
+<h2>BMI Categories</h2><ul><li>Under 18.5 — Underweight</li><li>18.5–24.9 — Normal</li><li>25–29.9 — Overweight</li><li>30+ — Obese</li></ul>
+<h2>FAQ</h2><h3>Is BMI accurate for athletes?</h3><p>No. Muscle mass can raise BMI despite low body fat.</p><h3>Is this calculator free?</h3><p>Yes, free and no signup required.</p>
+<p><em>Not medical advice. Consult a professional.</em></p>
+<script>document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();const h=parseFloat(document.getElementById('h').value)/100;const w=parseFloat(document.getElementById('w').value);const b=(w/(h*h)).toFixed(1);let c=b<18.5?'Underweight':b<25?'Normal':b<30?'Overweight':'Obese';document.getElementById('out').textContent=`Your BMI: ${b} (${c})`;});</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is BMI accurate for athletes?","acceptedAnswer":{"@type":"Answer","text":"No. Muscle mass can raise BMI despite low body fat."}},{"@type":"Question","name":"Is this calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes, free and no signup required."}}]}</script>
