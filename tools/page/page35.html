@@ -1,0 +1,16 @@
+---
+layout: tool
+title: "Regex Tester"
+description: "Test regular expressions in your browser."
+permalink: /tools/regex-tester.html
+category: developer-tools
+tags: [regex, developer]
+date: 2026-11-21
+---
+<label>Pattern <input type="text" id="p" placeholder="\d+"></label>
+<label>Flags <input type="text" id="fl" value="g"></label>
+<label>Test String <textarea id="s" rows="6"></textarea></label>
+<button onclick="t()">Test</button>
+<div class="result" id="out">—</div>
+<h2>How to Use</h2><p>Enter pattern, flags, and test string.</p>
+<script>function t(){try{const r=new RegExp(document.getElementById('p').value,document.getElementById('fl').value);const m=document.getElementById('s').value.match(r);document.getElementById('out').textContent=m?m.join(', '):'No match';}catch(x){document.getElementById('out').textContent='Invalid regex: '+x.message;}}</script>

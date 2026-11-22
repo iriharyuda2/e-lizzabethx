@@ -1,0 +1,13 @@
+---
+layout: tool
+title: "Free Age Calculator"
+description: "Calculate your exact age in years, months, and days."
+permalink: /tools/age-calculator.html
+category: calculators
+tags: [date, age]
+date: 2026-11-21
+---
+<form id="f"><label>Birth Date <input type="date" id="b" required></label><button type="submit">Calculate</button></form>
+<div class="result" id="out">—</div>
+<h2>How to Use</h2><p>Pick your birth date to see your exact age.</p>
+<script>document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();const b=new Date(document.getElementById('b').value);const n=new Date();let y=n.getFullYear()-b.getFullYear();let m=n.getMonth()-b.getMonth();let d=n.getDate()-b.getDate();if(d<0){m--;d+=new Date(n.getFullYear(),n.getMonth(),0).getDate();}if(m<0){y--;m+=12;}document.getElementById('out').textContent=`${y} years, ${m} months, ${d} days`;});</script>

@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Free Case Converter"
+description: "Convert text to UPPER, lower, Title Case, or Sentence case."
+permalink: /tools/case-converter.html
+category: text-tools
+tags: [writing, text]
+date: 2026-11-21
+---
+<textarea id="t" rows="8" placeholder="Type or paste text..."></textarea>
+<p><button onclick="c('u')">UPPERCASE</button><button onclick="c('l')">lowercase</button><button onclick="c('ti')">Title Case</button><button onclick="c('s')">Sentence case</button></p>
+<div class="result" id="out">—</div>
+<h2>How to Use</h2><p>Paste text, click a button.</p>
+<script>function c(x){const e=document.getElementById('t');let v=e.value;if(x==='u')v=v.toUpperCase();else if(x==='l')v=v.toLowerCase();else if(x==='ti')v=v.replace(/\w\S*/g,w=>w[0].toUpperCase()+w.slice(1).toLowerCase());else if(x==='s')v=v.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g,m=>m.toUpperCase());document.getElementById('out').textContent=v;}</script>

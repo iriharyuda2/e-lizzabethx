@@ -1,0 +1,13 @@
+---
+layout: tool
+title: "Image to Base64"
+description: "Convert images to Base64 strings in your browser."
+permalink: /tools/image-to-base64.html
+category: image-color
+tags: [image, base64]
+date: 2026-11-21
+---
+<input type="file" id="f" accept="image/*">
+<textarea id="out" rows="6" readonly placeholder="Base64 appears here..."></textarea>
+<h2>How to Use</h2><p>Choose an image to get its Base64 string.</p>
+<script>document.getElementById('f').onchange=function(){const f=this.files[0];if(!f)return;const r=new FileReader();r.onload=function(){document.getElementById('out').value=r.result;};r.readAsDataURL(f);};</script>

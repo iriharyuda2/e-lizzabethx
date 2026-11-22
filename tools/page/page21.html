@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Free Loan Calculator"
+description: "Calculate monthly payments and total interest."
+permalink: /tools/loan-calculator.html
+category: calculators
+tags: [finance, loan]
+date: 2026-11-21
+---
+<form id="f"><label>Loan Amount <input type="number" id="p" min="0" required></label><label>Annual Interest (%) <input type="number" id="r" min="0" step="0.01" required></label><label>Years <input type="number" id="y" min="1" required></label><button type="submit">Calculate</button></form>
+<div class="result" id="out">—</div>
+<h2>How It Works</h2><p>Uses the standard amortization formula to estimate monthly payments.</p>
+<p><em>Estimate only, not financial advice.</em></p>
+<script>document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();const p=+document.getElementById('p').value;const r=+document.getElementById('r').value/100/12;const n=+document.getElementById('y').value*12;const m=r?p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):p/n;document.getElementById('out').textContent=`Monthly: ${m.toFixed(2)} · Total: ${(m*n).toFixed(2)} · Interest: ${(m*n-p).toFixed(2)}`;});</script>

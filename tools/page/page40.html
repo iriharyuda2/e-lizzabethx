@@ -1,0 +1,15 @@
+---
+layout: tool
+title: "Base64 Encoder / Decoder"
+description: "Encode or decode Base64 instantly."
+permalink: /tools/base64-encoder.html
+category: developer-tools
+tags: [base64, developer]
+date: 2026-11-21
+---
+<textarea id="in" rows="6" placeholder="Text..."></textarea>
+<p><button onclick="e()">Encode</button><button onclick="d()">Decode</button></p>
+<textarea id="out" rows="6" readonly></textarea>
+<p id="err" style="color:#c00"></p>
+<h2>What Is Base64?</h2><p>A way to encode binary data as text.</p>
+<script>function e(){document.getElementById('out').value=btoa(document.getElementById('in').value);}function d(){try{document.getElementById('out').value=atob(document.getElementById('in').value);document.getElementById('err').textContent='';}catch(x){document.getElementById('err').textContent='Invalid Base64';}}</script>

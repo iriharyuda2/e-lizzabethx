@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Remove Duplicate Lines"
+description: "Remove duplicate lines from text instantly."
+permalink: /tools/remove-duplicate-lines.html
+category: text-tools
+tags: [text, clean]
+date: 2026-11-21
+---
+<textarea id="in" rows="8" placeholder="Paste text..."></textarea>
+<p><button onclick="run(false)">Remove duplicates</button><button onclick="run(true)">Remove & sort</button></p>
+<textarea id="out" rows="8" readonly placeholder="Result..."></textarea>
+<h2>How It Works</h2><p>Each line compared exactly. Empty lines ignored.</p>
+<script>function run(s){const l=document.getElementById('in').value.split('\n');let u=[...new Set(l.filter(x=>x.trim()))];if(s)u.sort();document.getElementById('out').value=u.join('\n');}</script>

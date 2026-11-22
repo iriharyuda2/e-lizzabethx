@@ -1,0 +1,15 @@
+---
+layout: tool
+title: "Free BMR Calculator"
+description: "Calculate your Basal Metabolic Rate and daily calorie needs instantly."
+permalink: /tools/bmr-calculator.html
+category: calculators
+tags: [health, calories, bmr]
+date: 2026-11-21
+---
+<form id="f"><label>Gender <select id="g"><option value="m">Male</option><option value="f">Female</option></select></label><label>Age <input type="number" id="a" min="10" max="120" required></label><label>Height (cm) <input type="number" id="h" min="50" required></label><label>Weight (kg) <input type="number" id="w" min="10" required></label><label>Activity <select id="act"><option value="1.2">Sedentary</option><option value="1.375">Light</option><option value="1.55">Moderate</option><option value="1.725">Very active</option><option value="1.9">Extra</option></select></label><button type="submit">Calculate</button></form>
+<div class="result" id="out" aria-live="polite">—</div>
+<h2>What Is BMR?</h2><p>BMR is the calories your body needs at rest to maintain vital functions.</p>
+<h2>FAQ</h2><h3>Is this accurate?</h3><p>It uses the Mifflin-St Jeor equation, a widely used estimate.</p>
+<p><em>Not medical advice.</em></p>
+<script>document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();const g=document.getElementById('g').value;const a=+document.getElementById('a').value;const h=+document.getElementById('h').value;const w=+document.getElementById('w').value;const act=+document.getElementById('act').value;const bmr=g==='m'?10*w+6.25*h-5*a+5:10*w+6.25*h-5*a-161;document.getElementById('out').textContent=`BMR: ${bmr.toFixed(0)} kcal/day · Daily needs: ${(bmr*act).toFixed(0)} kcal/day`;});</script>

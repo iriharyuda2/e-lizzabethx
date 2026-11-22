@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Password Generator"
+description: "Generate strong random passwords in your browser."
+permalink: /tools/password-generator.html
+category: generators
+tags: [security, password]
+date: 2026-11-21
+---
+<label>Length <input type="number" id="len" value="16" min="4" max="64"></label>
+<button onclick="g()">Generate</button>
+<div class="result" id="out" style="font-family:monospace;word-break:break-all">—</div>
+<h2>How It Works</h2><p>Uses crypto.getRandomValues for strong randomness.</p>
+<script>function g(){const len=+document.getElementById('len').value;const c='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=';const a=new Uint32Array(len);crypto.getRandomValues(a);let p='';for(let i=0;i<len;i++)p+=c[a[i]%c.length];document.getElementById('out').textContent=p;}g();</script>

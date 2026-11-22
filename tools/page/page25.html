@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Free GPA Calculator"
+description: "Calculate your GPA from course grades and credits."
+permalink: /tools/gpa-calculator.html
+category: calculators
+tags: [education, gpa]
+date: 2026-11-21
+---
+<div id="rows"><div><input type="number" placeholder="Grade (4.0)" class="g"><input type="number" placeholder="Credits" class="c"></div></div>
+<button onclick="add()">Add Course</button><button onclick="calc()">Calculate GPA</button>
+<div class="result" id="out">—</div>
+<h2>How It Works</h2><p>GPA = sum(grade × credits) ÷ sum(credits).</p>
+<script>function add(){const d=document.createElement('div');d.innerHTML='<input type="number" placeholder="Grade (4.0)" class="g"><input type="number" placeholder="Credits" class="c">';document.getElementById('rows').appendChild(d);}function calc(){const g=document.querySelectorAll('.g'),c=document.querySelectorAll('.c');let t=0,cr=0;for(let i=0;i<g.length;i++){t+=(+g[i].value)*(+c[i].value);cr+=+c[i].value;}document.getElementById('out').textContent=cr?`GPA: ${(t/cr).toFixed(2)}`:'Enter values';}</script>

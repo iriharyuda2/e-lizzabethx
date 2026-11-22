@@ -1,0 +1,15 @@
+---
+layout: tool
+title: "JSON Formatter"
+description: "Format, validate, and minify JSON instantly."
+permalink: /tools/json-formatter.html
+category: developer-tools
+tags: [json, developer]
+date: 2026-11-21
+---
+<textarea id="in" rows="8" placeholder='{"hello":"world"}'></textarea>
+<p><button onclick="f(false)">Format</button><button onclick="f(true)">Minify</button></p>
+<textarea id="out" rows="10" readonly></textarea>
+<p id="err" style="color:#c00"></p>
+<h2>What It Does</h2><p>Validates JSON and outputs pretty or minified.</p>
+<script>function f(m){const e=document.getElementById('err');e.textContent='';try{const o=JSON.parse(document.getElementById('in').value);document.getElementById('out').value=m?JSON.stringify(o):JSON.stringify(o,null,2);}catch(x){e.textContent='Invalid JSON: '+x.message;}}</script>

@@ -1,0 +1,17 @@
+---
+layout: tool
+title: "Free Percentage Calculator"
+description: "Calculate percentages, increases, and decreases instantly in your browser."
+permalink: /tools/percentage-calculator.html
+category: calculators
+tags: [math, percentage]
+date: 2026-11-21
+---
+<h2>What is X% of Y?</h2>
+<input type="number" id="p1" placeholder="X (%)"><input type="number" id="p2" placeholder="Y"><button onclick="c1()">Calculate</button><div class="result" id="r1">—</div>
+<h2>X is what % of Y?</h2>
+<input type="number" id="q1" placeholder="X"><input type="number" id="q2" placeholder="Y"><button onclick="c2()">Calculate</button><div class="result" id="r2">—</div>
+<h2>Percentage change</h2>
+<input type="number" id="c1" placeholder="From"><input type="number" id="c2" placeholder="To"><button onclick="c3()">Calculate</button><div class="result" id="r3">—</div>
+<h2>FAQ</h2><h3>How do I calculate a percentage?</h3><p>Divide the part by the whole and multiply by 100.</p>
+<script>const n=id=>parseFloat(document.getElementById(id).value);function c1(){const x=n('p1'),y=n('p2');document.getElementById('r1').textContent=isNaN(x*y)?'Enter numbers':`${x}% of ${y} = ${(x/100*y).toFixed(2)}`;}function c2(){const x=n('q1'),y=n('q2');document.getElementById('r2').textContent=!y?'Y cannot be zero':`${x} is ${(x/y*100).toFixed(2)}% of ${y}`;}function c3(){const a=n('c1'),b=n('c2');if(!a)return document.getElementById('r3').textContent='From cannot be zero';const ch=((b-a)/Math.abs(a)*100).toFixed(2);document.getElementById('r3').textContent=`${a} → ${b} = ${ch>0?'+':''}${ch}%`;}</script>

@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Countdown Timer"
+description: "Set a countdown timer in your browser."
+permalink: /tools/countdown-timer.html
+category: utilities
+tags: [productivity, timer]
+date: 2026-11-21
+---
+<label>Minutes <input type="number" id="m" value="5" min="1"></label>
+<p style="font-size:3rem;font-variant-numeric:tabular-nums" id="d">05:00</p>
+<p><button onclick="start()">Start</button><button onclick="pause()">Pause</button><button onclick="reset()">Reset</button></p>
+<h2>How to Use</h2><p>Set minutes and click Start.</p>
+<script>let r=300,t=null;function render(){const m=String(Math.floor(r/60)).padStart(2,'0');const s=String(r%60).padStart(2,'0');document.getElementById('d').textContent=`${m}:${s}`;}function start(){if(t)return;t=setInterval(()=>{if(r<=0){pause();alert('Time up!');return;}r--;render();},1000);}function pause(){clearInterval(t);t=null;}function reset(){pause();r=(+document.getElementById('m').value||5)*60;render();}render();</script>

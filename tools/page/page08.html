@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Free Compound Interest Calculator"
+description: "See how your savings grow with compound interest."
+permalink: /tools/compound-interest-calculator.html
+category: calculators
+tags: [finance, investing]
+date: 2026-11-21
+---
+<form id="f"><label>Principal <input type="number" id="p" min="0" required></label><label>Annual Rate (%) <input type="number" id="r" min="0" step="0.01" required></label><label>Years <input type="number" id="y" min="1" required></label><label>Compounds/Year <input type="number" id="c" min="1" value="12" required></label><button type="submit">Calculate</button></form>
+<div class="result" id="out">—</div>
+<h2>Formula</h2><p>A = P(1 + r/n)^(nt)</p>
+<p><em>Estimate only.</em></p>
+<script>document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();const p=+document.getElementById('p').value;const r=+document.getElementById('r').value/100;const y=+document.getElementById('y').value;const c=+document.getElementById('c').value;const a=p*Math.pow(1+r/c,c*y);document.getElementById('out').textContent=`Final: ${a.toFixed(2)} · Interest: ${(a-p).toFixed(2)}`;});</script>

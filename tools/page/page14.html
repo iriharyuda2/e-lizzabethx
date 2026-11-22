@@ -1,0 +1,13 @@
+---
+layout: tool
+title: "UUID Generator"
+description: "Generate random UUID v4 instantly."
+permalink: /tools/uuid-generator.html
+category: generators
+tags: [uuid, random]
+date: 2026-11-21
+---
+<button onclick="g()">Generate UUID</button>
+<div class="result" id="out" style="font-family:monospace">—</div>
+<h2>What Is a UUID?</h2><p>A universally unique identifier.</p>
+<script>function g(){document.getElementById('out').textContent=crypto.randomUUID();}g();</script>

@@ -1,0 +1,13 @@
+---
+layout: tool
+title: "Free Discount Calculator"
+description: "Calculate sale price and savings instantly."
+permalink: /tools/discount-calculator.html
+category: calculators
+tags: [shopping, discount]
+date: 2026-11-21
+---
+<form id="f"><label>Original Price <input type="number" id="p" min="0" step="0.01" required></label><label>Discount (%) <input type="number" id="d" min="0" max="100" step="0.1" required></label><button type="submit">Calculate</button></form>
+<div class="result" id="out">—</div>
+<h2>How to Use</h2><p>Enter the original price and discount percentage. The final price and amount saved appear instantly.</p>
+<script>document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();const p=+document.getElementById('p').value;const d=+document.getElementById('d').value;const s=p*d/100;document.getElementById('out').textContent=`Final price: ${(p-s).toFixed(2)} · You save: ${s.toFixed(2)}`;});</script>

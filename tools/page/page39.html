@@ -1,0 +1,13 @@
+---
+layout: tool
+title: "Stopwatch"
+description: "Simple stopwatch in your browser."
+permalink: /tools/stopwatch.html
+category: utilities
+tags: [productivity, timer]
+date: 2026-11-21
+---
+<p style="font-size:3rem;font-variant-numeric:tabular-nums" id="d">00:00.00</p>
+<p><button onclick="start()">Start</button><button onclick="stop()">Stop</button><button onclick="reset()">Reset</button></p>
+<h2>How to Use</h2><p>Click Start to begin timing.</p>
+<script>let s=0,t=null;function render(){const m=String(Math.floor(s/6000)).padStart(2,'0');const sec=String(Math.floor(s/100)%60).padStart(2,'0');const cs=String(s%100).padStart(2,'0');document.getElementById('d').textContent=`${m}:${sec}.${cs}`;}function start(){if(t)return;t=setInterval(()=>{s++;render();},10);}function stop(){clearInterval(t);t=null;}function reset(){stop();s=0;render();}render();</script>

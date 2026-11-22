@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Slug Converter"
+description: "Convert text to a URL-friendly slug."
+permalink: /tools/slug-converter.html
+category: text-tools
+tags: [text, url]
+date: 2026-11-21
+---
+<input type="text" id="in" placeholder="Type title...">
+<button onclick="s()">Convert</button>
+<div class="result" id="out">—</div>
+<h2>What Is a Slug?</h2><p>A slug is the URL-friendly version of a title.</p>
+<script>function s(){const v=document.getElementById('in').value.toLowerCase().trim().replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-');document.getElementById('out').textContent=v;}</script>

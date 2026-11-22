@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "URL Encoder / Decoder"
+description: "Encode or decode URLs instantly."
+permalink: /tools/url-encoder.html
+category: developer-tools
+tags: [url, developer]
+date: 2026-11-21
+---
+<textarea id="in" rows="6" placeholder="URL or text..."></textarea>
+<p><button onclick="e()">Encode</button><button onclick="d()">Decode</button></p>
+<textarea id="out" rows="6" readonly></textarea>
+<h2>What Is URL Encoding?</h2><p>Converts characters to a safe format for URLs.</p>
+<script>function e(){document.getElementById('out').value=encodeURIComponent(document.getElementById('in').value);}function d(){document.getElementById('out').value=decodeURIComponent(document.getElementById('in').value);}</script>

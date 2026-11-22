@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Hash Generator"
+description: "Generate SHA-256 hashes in your browser."
+permalink: /tools/hash-generator.html
+category: developer-tools
+tags: [hash, developer]
+date: 2026-11-21
+---
+<textarea id="in" rows="6" placeholder="Text to hash..."></textarea>
+<button onclick="h()">Generate SHA-256</button>
+<div class="result" id="out" style="font-family:monospace;word-break:break-all">—</div>
+<h2>What Is a Hash?</h2><p>A fixed-size fingerprint of data.</p>
+<script>async function h(){const t=document.getElementById('in').value;const b=new TextEncoder().encode(t);const hb=await crypto.subtle.digest('SHA-256',b);const arr=Array.from(new Uint8Array(hb));document.getElementById('out').textContent=arr.map(x=>x.toString(16).padStart(2,'0')).join('');}</script>

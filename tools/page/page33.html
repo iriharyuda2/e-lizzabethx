@@ -1,0 +1,15 @@
+---
+layout: tool
+title: "Dice Roller"
+description: "Roll dice online instantly."
+permalink: /tools/dice-roller.html
+category: generators
+tags: [random, dice]
+date: 2026-11-21
+---
+<label>Sides <input type="number" id="s" value="6" min="2"></label>
+<label>Number of dice <input type="number" id="n" value="1" min="1"></label>
+<button onclick="r()">Roll</button>
+<div class="result" id="out">—</div>
+<h2>How to Use</h2><p>Choose sides and number of dice, click Roll.</p>
+<script>function r(){const s=+document.getElementById('s').value;const n=+document.getElementById('n').value;let res=[];for(let i=0;i<n;i++)res.push(Math.floor(Math.random()*s)+1);document.getElementById('out').textContent=res.join(', ')+` (total: ${res.reduce((a,b)=>a+b,0)})`;}</script>

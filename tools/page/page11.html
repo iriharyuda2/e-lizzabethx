@@ -1,0 +1,13 @@
+---
+layout: tool
+title: "Free Tip Calculator"
+description: "Calculate tips and split bills instantly."
+permalink: /tools/tip-calculator.html
+category: calculators
+tags: [money, tip]
+date: 2026-11-21
+---
+<form id="f"><label>Bill Amount <input type="number" id="b" min="0" step="0.01" required></label><label>Tip (%) <input type="number" id="t" min="0" max="100" value="15" required></label><label>Split (people) <input type="number" id="s" min="1" value="1" required></label><button type="submit">Calculate</button></form>
+<div class="result" id="out">—</div>
+<h2>How to Use</h2><p>Enter bill, tip percentage, and number of people to split.</p>
+<script>document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();const b=+document.getElementById('b').value;const t=+document.getElementById('t').value;const s=+document.getElementById('s').value;const tip=b*t/100;document.getElementById('out').textContent=`Tip: ${tip.toFixed(2)} · Total: ${(b+tip).toFixed(2)} · Per person: ${((b+tip)/s).toFixed(2)}`;});</script>

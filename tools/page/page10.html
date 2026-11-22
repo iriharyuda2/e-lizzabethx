@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Line Numbering Tool"
+description: "Add line numbers to any text instantly."
+permalink: /tools/line-numbering.html
+category: text-tools
+tags: [text, numbers]
+date: 2026-11-21
+---
+<textarea id="in" rows="8" placeholder="Paste text..."></textarea>
+<button onclick="n()">Add Line Numbers</button>
+<textarea id="out" rows="8" readonly></textarea>
+<h2>How to Use</h2><p>Paste text, click Add Line Numbers.</p>
+<script>function n(){const l=document.getElementById('in').value.split('\n');document.getElementById('out').value=l.map((x,i)=>`${i+1}. ${x}`).join('\n');}</script>

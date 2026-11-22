@@ -1,0 +1,15 @@
+---
+layout: tool
+title: "Random Number Generator"
+description: "Generate random numbers in any range."
+permalink: /tools/random-number-generator.html
+category: generators
+tags: [random, numbers]
+date: 2026-11-21
+---
+<label>Min <input type="number" id="min" value="1"></label>
+<label>Max <input type="number" id="max" value="100"></label>
+<button onclick="g()">Generate</button>
+<div class="result" id="out">—</div>
+<h2>How to Use</h2><p>Set range and click Generate.</p>
+<script>function g(){const mn=+document.getElementById('min').value;const mx=+document.getElementById('max').value;const n=Math.floor(Math.random()*(mx-mn+1))+mn;document.getElementById('out').textContent=n;}</script>

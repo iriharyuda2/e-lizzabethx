@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Whitespace Remover"
+description: "Remove extra whitespace from text instantly."
+permalink: /tools/whitespace-remover.html
+category: text-tools
+tags: [text, clean]
+date: 2026-11-21
+---
+<textarea id="in" rows="8" placeholder="Paste text..."></textarea>
+<button onclick="r()">Clean Whitespace</button>
+<textarea id="out" rows="8" readonly></textarea>
+<h2>How It Works</h2><p>Trims each line and collapses multiple spaces.</p>
+<script>function r(){const l=document.getElementById('in').value.split('\n').map(x=>x.trim().replace(/\s+/g,' ')).filter(x=>x);document.getElementById('out').value=l.join('\n');}</script>

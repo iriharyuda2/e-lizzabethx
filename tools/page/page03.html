@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Image Compressor"
+description: "Compress images in your browser. No upload."
+permalink: /tools/image-compressor.html
+category: image-color
+tags: [image, compress]
+date: 2026-11-21
+---
+<input type="file" id="f" accept="image/*"><label>Quality <input type="range" id="q" min="10" max="100" value="70"></label>
+<canvas id="c" style="max-width:100%;margin-top:1rem;display:none"></canvas>
+<p><a id="dl" style="display:none">Download compressed</a></p>
+<h2>How It Works</h2><p>Uses canvas to re-encode the image at your chosen quality.</p>
+<script>document.getElementById('f').onchange=function(){const f=this.files[0];if(!f)return;const img=new Image();img.onload=function(){const c=document.getElementById('c');c.width=img.width;c.height=img.height;c.getContext('2d').drawImage(img,0,0);c.style.display='block';const q=+document.getElementById('q').value/100;c.toBlob(function(b){const a=document.getElementById('dl');a.href=URL.createObjectURL(b);a.download='compressed.jpg';a.style.display='inline';},'image/jpeg',q);};img.src=URL.createObjectURL(f);};</script>

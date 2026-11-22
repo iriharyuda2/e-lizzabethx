@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Random Name Picker"
+description: "Pick a random name from a list."
+permalink: /tools/random-name-picker.html
+category: generators
+tags: [random, picker]
+date: 2026-11-21
+---
+<textarea id="in" rows="6" placeholder="One name per line..."></textarea>
+<button onclick="p()">Pick Random</button>
+<div class="result" id="out">—</div>
+<h2>How to Use</h2><p>Enter names (one per line), click Pick Random.</p>
+<script>function p(){const l=document.getElementById('in').value.split('\n').filter(x=>x.trim());if(!l.length)return;document.getElementById('out').textContent=l[Math.floor(Math.random()*l.length)];}</script>

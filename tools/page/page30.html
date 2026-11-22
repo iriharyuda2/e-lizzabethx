@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Lorem Ipsum Generator"
+description: "Generate placeholder text instantly."
+permalink: /tools/lorem-ipsum-generator.html
+category: text-tools
+tags: [text, placeholder]
+date: 2026-11-21
+---
+<label>Paragraphs <input type="number" id="n" value="3" min="1" max="20"></label>
+<button onclick="g()">Generate</button>
+<div class="result" id="out">—</div>
+<h2>What Is Lorem Ipsum?</h2><p>Dummy text used in design to visualize layout.</p>
+<script>const w='lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'.split(' ');function g(){const n=+document.getElementById('n').value;let out=[];for(let i=0;i<n;i++){let p=[];for(let j=0;j<40;j++)p.push(w[Math.floor(Math.random()*w.length)]);out.push(p.join(' ')+'.');}document.getElementById('out').textContent=out.join('\n\n');}</script>

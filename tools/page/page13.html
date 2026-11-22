@@ -1,0 +1,17 @@
+---
+layout: tool
+title: "Timestamp Converter"
+description: "Convert Unix timestamps to dates and back."
+permalink: /tools/timestamp-converter.html
+category: developer-tools
+tags: [timestamp, developer]
+date: 2026-11-21
+---
+<label>Unix Timestamp <input type="number" id="ts"></label>
+<button onclick="t2d()">To Date</button>
+<div class="result" id="out1">—</div>
+<label>Date <input type="datetime-local" id="d"></label>
+<button onclick="d2t()">To Timestamp</button>
+<div class="result" id="out2">—</div>
+<h2>What Is a Unix Timestamp?</h2><p>Seconds since January 1, 1970 UTC.</p>
+<script>function t2d(){const t=+document.getElementById('ts').value;document.getElementById('out1').textContent=new Date(t*1000).toUTCString();}function d2t(){const d=new Date(document.getElementById('d').value);document.getElementById('out2').textContent=Math.floor(d.getTime()/1000);}</script>

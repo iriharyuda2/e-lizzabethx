@@ -1,0 +1,15 @@
+---
+layout: tool
+title: "Free Unit Converter"
+description: "Convert length, weight, and temperature instantly."
+permalink: /tools/unit-converter.html
+category: calculators
+tags: [math, units]
+date: 2026-11-21
+---
+<label>Category <select id="cat" onchange="build()"><option value="length">Length</option><option value="weight">Weight</option><option value="temp">Temperature</option></select></label>
+<label>From <select id="from"></select></label><label>To <select id="to"></select></label>
+<label>Value <input type="number" id="val" value="1"></label>
+<button onclick="conv()">Convert</button><div class="result" id="out">—</div>
+<h2>How to Use</h2><p>Pick category, units, and value.</p>
+<script>const u={length:{m:1,km:1000,cm:0.01,mm:0.001,mi:1609.34,ft:0.3048,in:0.0254,yd:0.9144},weight:{kg:1,g:0.001,mg:0.000001,lb:0.453592,oz:0.0283495,t:1000},temp:{C:'C',F:'F',K:'K'}};function build(){const cat=document.getElementById('cat').value;const keys=Object.keys(u[cat]);['from','to'].forEach(id=>{document.getElementById(id).innerHTML=keys.map(k=>`<option>${k}</option>`).join('');});}function conv(){const cat=document.getElementById('cat').value;const f=document.getElementById('from').value;const t=document.getElementById('to').value;const v=+document.getElementById('val').value;let r;if(cat==='temp'){let c=f==='C'?v:f==='F'?(v-32)*5/9:v-273.15;r=t==='C'?c:t==='F'?c*9/5+32:c+273.15;}else{r=v*u[cat][f]/u[cat][t];}document.getElementById('out').textContent=`${v} ${f} = ${r.toFixed(4)} ${t}`;}build();</script>

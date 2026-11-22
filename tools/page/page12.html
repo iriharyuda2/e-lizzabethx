@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Browser Notes"
+description: "Simple notes saved in your browser."
+permalink: /tools/notes.html
+category: utilities
+tags: [productivity, notes]
+date: 2026-11-21
+---
+<textarea id="n" rows="12" placeholder="Write notes here... (saved locally)"></textarea>
+<p><button onclick="save()">Save</button><button onclick="clearN()">Clear</button></p>
+<div class="result" id="out">—</div>
+<h2>How It Works</h2><p>Notes are saved in your browser's localStorage — never sent anywhere.</p>
+<script>const n=document.getElementById('n');n.value=localStorage.getItem('notes')||'';function save(){localStorage.setItem('notes',n.value);document.getElementById('out').textContent='Saved.';}function clearN(){n.value='';localStorage.removeItem('notes');document.getElementById('out').textContent='Cleared.';}</script>

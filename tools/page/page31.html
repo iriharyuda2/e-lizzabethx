@@ -1,0 +1,13 @@
+---
+layout: tool
+title: "Free Word Counter"
+description: "Count words, characters, sentences, and paragraphs in real time."
+permalink: /tools/word-counter.html
+category: text-tools
+tags: [writing, words]
+date: 2026-11-21
+---
+<textarea id="t" rows="10" placeholder="Type or paste text..."></textarea>
+<div class="result" id="out">Words: 0 · Characters: 0 · Sentences: 0 · Paragraphs: 0</div>
+<h2>How It Works</h2><p>Counts update as you type, all locally.</p>
+<script>const t=document.getElementById('t');t.addEventListener('input',function(){const v=t.value;const w=v.trim()?v.trim().split(/\s+/).length:0;const s=v.trim()?(v.match(/[.!?]+/g)||[]).length||1:0;const p=v.trim()?v.trim().split(/\n\s*\n/).length:0;document.getElementById('out').textContent=`Words: ${w} · Characters: ${v.length} · Sentences: ${s} · Paragraphs: ${p}`;});</script>

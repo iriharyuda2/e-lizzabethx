@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Text Reverser"
+description: "Reverse any text instantly in your browser."
+permalink: /tools/text-reverser.html
+category: text-tools
+tags: [text, fun]
+date: 2026-11-21
+---
+<textarea id="in" rows="6" placeholder="Type text..."></textarea>
+<button onclick="r()">Reverse</button>
+<textarea id="out" rows="6" readonly></textarea>
+<h2>How to Use</h2><p>Type text, click Reverse.</p>
+<script>function r(){document.getElementById('out').value=[...document.getElementById('in').value].reverse().join('');}</script>

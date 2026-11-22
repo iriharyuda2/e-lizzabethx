@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "HTML Entity Encoder"
+description: "Encode or decode HTML entities instantly."
+permalink: /tools/html-entity-encoder.html
+category: developer-tools
+tags: [html, developer]
+date: 2026-11-21
+---
+<textarea id="in" rows="6" placeholder="Text or HTML..."></textarea>
+<p><button onclick="e()">Encode</button><button onclick="d()">Decode</button></p>
+<textarea id="out" rows="6" readonly></textarea>
+<h2>What Are HTML Entities?</h2><p>Special codes for characters like &lt; and &amp;.</p>
+<script>function e(){const d=document.createElement('div');d.textContent=document.getElementById('in').value;document.getElementById('out').value=d.innerHTML;}function d(){const d=document.createElement('div');d.innerHTML=document.getElementById('in').value;document.getElementById('out').value=d.textContent;}</script>

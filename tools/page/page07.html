@@ -1,0 +1,16 @@
+---
+layout: tool
+title: "Find and Replace"
+description: "Find and replace text instantly in your browser."
+permalink: /tools/find-replace.html
+category: text-tools
+tags: [text, replace]
+date: 2026-11-21
+---
+<textarea id="in" rows="6" placeholder="Paste text..."></textarea>
+<label>Find <input type="text" id="find"></label>
+<label>Replace with <input type="text" id="rep"></label>
+<button onclick="r()">Replace All</button>
+<textarea id="out" rows="6" readonly></textarea>
+<h2>How to Use</h2><p>Enter find and replace text, click Replace All.</p>
+<script>function r(){const t=document.getElementById('in').value;const f=document.getElementById('find').value;const rp=document.getElementById('rep').value;document.getElementById('out').value=f?t.split(f).join(rp):t;}</script>

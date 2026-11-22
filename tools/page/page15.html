@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "To-Do List"
+description: "Simple to-do list saved in your browser."
+permalink: /tools/todo-list.html
+category: utilities
+tags: [productivity, todo]
+date: 2026-11-21
+---
+<input type="text" id="t" placeholder="New task...">
+<button onclick="add()">Add</button>
+<ul id="list"></ul>
+<h2>How It Works</h2><p>Tasks saved in localStorage — never sent anywhere.</p>
+<script>let tasks=JSON.parse(localStorage.getItem('todo')||'[]');function render(){const l=document.getElementById('list');l.innerHTML='';tasks.forEach((t,i)=>{const li=document.createElement('li');li.innerHTML=`${t} <button onclick="rm(${i})">✕</button>`;l.appendChild(li);});}function add(){const v=document.getElementById('t').value.trim();if(!v)return;tasks.push(v);localStorage.setItem('todo',JSON.stringify(tasks));document.getElementById('t').value='';render();}function rm(i){tasks.splice(i,1);localStorage.setItem('todo',JSON.stringify(tasks));render();}render();</script>

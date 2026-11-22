@@ -1,0 +1,14 @@
+---
+layout: tool
+title: "Text Sorter"
+description: "Sort lines of text alphabetically."
+permalink: /tools/text-sorter.html
+category: text-tools
+tags: [text, sort]
+date: 2026-11-21
+---
+<textarea id="in" rows="8" placeholder="Paste lines..."></textarea>
+<p><button onclick="s(false)">Sort A–Z</button><button onclick="s(true)">Sort Z–A</button></p>
+<textarea id="out" rows="8" readonly></textarea>
+<h2>How It Works</h2><p>Sorts lines alphabetically.</p>
+<script>function s(r){const l=document.getElementById('in').value.split('\n').filter(x=>x.trim());l.sort();if(r)l.reverse();document.getElementById('out').value=l.join('\n');}</script>
